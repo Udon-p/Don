@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -89,6 +90,12 @@
             box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);
         }
     </style>
+<script>
+        // ปิดการคลิกขวา
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -131,8 +138,6 @@
             <div style="text-align: center; margin-top: 20px;">
             <label for="personSelect" style="font-size: 18px;">เลือกผู้บอก:</label>
             <select id="personSelect" style="font-size: 18px; padding: 5px;">
-                <option value="Team">Team</option>
-        <option value="@">@</option>
          <option value="Udon Don">Udon Don</option>
     </select>
         </div>
