@@ -81,7 +81,8 @@
         }
         #resultContainer {
             display: none;
-            margin-top: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
             background-color: #ffffcc;
             border: 2px solid #4CAF50;
             padding: 15px;
@@ -90,8 +91,21 @@
         }
     </style>
     <script>
+        // ปิดการคลิกขวา
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
+        });
+        // Function to update line height based on slider value
+        function updateLineHeight() {
+            const lineHeight = document.getElementById("lineHeightSlider").value;
+            const resultContent = document.getElementById("resultContent");
+            resultContent.style.lineHeight = lineHeight;
+            document.getElementById("lineHeightValue").textContent = `ความสูงของบรรทัด: ${lineHeight}`;
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("convertButton").addEventListener("click", convertNumber);
+            document.getElementById("lineHeightSlider").addEventListener("input", updateLineHeight);
         });
 
         function sortDigits(str) {
@@ -160,8 +174,8 @@
             const displayDate = dateInput ? getThaiDate(new Date(dateInput)) : getThaiDate();
 
             let resultHtml = `
- <div style="position: relative; text-align: center; font-size: 18px; line-height: 0.6;">
-        <img src="logo.png" alt="Logo" style="display: block; margin: 0 auto; width: 70px;">
+<div id="resultContent" style="position: relative; text-align: center; font-size: 18px;">
+ <img src="logo.png" alt="Logo" style="display: block; margin: 0 auto; width: 70px;">
                     <h2 class="blue" style="font-size: 20px;">${selectedTopic}</h2>
                     <p class="blue" style="font-size: 15px;">${displayDate}</p>
                     <h2 class="blue" style="font-size: 20px;">ตัวเลข 4 ตัว  <span style="color: red;">${num}</span> By : ${selectedPerson}</h2>
@@ -252,16 +266,20 @@
             <input type="text" id="noteInput" placeholder="หมายเหตุ (ถ้ามี)">
         </div>
 
-        <button id="convertButton">แปลงตัวเลข</button>
+        <button id="convertButton">แปลตัวเลข</button>
     </div>
+
+   </div>
+
+    <!-- Result Container -->
+    <div id="resultContainer" style="text-align: center; margin-top: 20px;"></div>
+           <label for="lineHeightSlider">ปรับขนาดบรรทัด:</label>
+            <input type="range" id="lineHeightSlider" min="0.0" max="2" step="0.1" value="1" onchange="updateLineHeight()">
+            <p>ค่าปัจจุบัน: <span id="lineHeightValue">0.5</span></p>
 
     <div id="resultContainer"></div>
 </div>
 
- <footer>
-<div style="text-align: center; margin-bottom: 20px;">
-        &copy; 2024 Udon Don. All Rights Reserved.
-    </footer>
-
+    <footer>&copy; 2024 Juckmanphai. All Rights Reserved.</footer>
 </body>
 </html>
