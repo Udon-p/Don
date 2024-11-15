@@ -83,11 +83,15 @@
         #resultContainer {
             display: none;
             margin-top: 20px;
+            margin-bottom: 20px;
             background-color: #ffffcc;
             border: 2px solid #4CAF50;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);
+        }
+        #resultContainer p {
+            line-height: 0.2;
         }
     </style>
 
@@ -95,6 +99,18 @@
         // ปิดการคลิกขวา
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
+        });
+        // Function to update line height based on slider value
+        function updateLineHeight() {
+            const lineHeight = document.getElementById("lineHeightSlider").value;
+            const resultContent = document.getElementById("resultContent");
+            resultContent.style.lineHeight = lineHeight;
+            document.getElementById("lineHeightValue").textContent = `ความสูงของบรรทัด: ${lineHeight}`;
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("convertButton").addEventListener("click", convertNumber);
+            document.getElementById("lineHeightSlider").addEventListener("input", updateLineHeight);
         });
 
         function sortPair(pair) {
@@ -545,8 +561,8 @@ const additionalNumbersForThirdSetText = finalAdditionalNumbers.length > 0
     : 'ไม่มีตัวเลขเพิ่ม';
 
 resultContainer.innerHTML = `
-<div style="position: relative; text-align: center; font-size: 18px; line-height: 0.6;">
-        <img src="logo.png" alt="Logo" style="display: block; margin: 0 auto; width: 70px;">
+<div id="resultContent" style="position: relative; text-align: center; font-size: 18px;">
+ <img src="logo.png" alt="Logo" style="display: block; margin: 0 auto; width: 70px;">
     <h2 class="blue" style="font-size: 15px;">${selectedTopic}</h2>
     <p class="blue" style="font-size: 15px;">${dateInputValue ? getThaiDate(dateInput) : getThaiDate(new Date())}</p>
     <h2 class="blue" style="font-size: 15px;">
@@ -586,7 +602,7 @@ resultContainer.style.display = 'block';
             <div style="display: inline-block;">
                 <label for="personSelect" style="font-size: 18px; margin-right: 5px;">เลือกผู้บอก:</label>
                 <select id="personSelect" style="font-size: 18px; padding: 5px;">
-                    <option value="Udon Don">Udon Don</option>
+                    <option value="Udon Don">Udon Don</option>              
                 </select>
             </div>
         </div>
@@ -636,16 +652,25 @@ resultContainer.style.display = 'block';
     </div>
 
     <!-- Result Container -->
-    <div id="resultContainer" style="text-align: center; margin-top: 20px;"></div>
+<div id="resultContainer" style="text-align: center; margin-top: 20px;"></div>
+
+<label for="lineHeightSlider">ปรับขนาดบรรทัด:</label>
+<input type="range" 
+       id="lineHeightSlider" 
+       min="0" 
+       max="2" 
+       step="0.1" 
+       value="1" 
+       onchange="updateLineHeight()">
+<p>ค่าปัจจุบัน: <span id="lineHeightValue">0.3</span></p>
 
     <!-- Back Button -->
     <button class="back-button" onclick="window.location.href='https://udon-p.github.io/Don/01.html'">กลับสู่หน้าหลัก</button>
 </div>
 
 
-<footer>
-<div style="text-align: center; margin-bottom: 20px;">
-        &copy; 2024 Udon Don. All Rights Reserved.
+    <footer>
+        &copy; 2024 Juckmanphai. All Rights Reserved.
     </footer>
 </body>
 </html>
