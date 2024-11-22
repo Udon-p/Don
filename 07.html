@@ -21,7 +21,7 @@
         .result {
             background-color: #ffffcc;
             margin: 10px auto;
-            border-radius: 10px;
+            border-radius: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border: 2px solid green;
             padding: 10px;
@@ -140,7 +140,7 @@
     </script>
 </head>
 <body>
-    <button class="back-button" onclick="window.location.href='https://udon-p.github.io/Don/01.html'">กลับสู่หน้าหลัก</button>
+    <button class="back-button" onclick="window.location.href='https://juckmanphai.github.io/juck/01.html'">กลับสู่หน้าหลัก</button>
     <h1>ผลลาวกลุ่มลาวสามัคคี</h1>
 
     <div class="input-container">
@@ -169,9 +169,8 @@
         <button id="circleTopButton">วงกลมสองตัวบน</button>
     </div>
 
-      <footer>
-<div style="text-align: center; margin-bottom: 20px;">
-        &copy; 2024 Udon Don. All Rights Reserved.
+    <footer>
+        &copy; 2024 Juckmanphai. All Rights Reserved.
     </footer>
     
     <script>
@@ -196,10 +195,13 @@
                 return `วันที่ ${day} เดือน ${month} ${year}`;
             };
 
-            let resultHtml = `
+let resultHtml = `
     <div style="position: relative; text-align: center; font-size: 18px; line-height: 0.5;">
-      <img src="logo.png" alt="Logo" style="display: block; margin: 0 auto; width: 70px;">
-        <h3 class="blue" style="font-size: 18px; line-height: 0.5;">ผล${selectedTopic}</h3>
+        <h3 class="blue" style="font-size: 18px; line-height: 0.5; display: inline-block; vertical-align: middle; margin: 0;">
+            <img src="logo.png" alt="Left Logo" style="width: 30px; vertical-align: middle; margin-right: 8px;">
+            ผล${selectedTopic}
+            <img src="logo.png" alt="Right Logo" style="width: 30px; vertical-align: middle; margin-left: 8px;">
+        </h3>
         <p class="blue" style="font-size: 18px; line-height: 0.5;">${getThaiDate()}</p>
         <h2 class="blue" style="font-size: 18px; line-height: 0.5;">รางวัลเลข 5 ตัว</h2>
         <h2 class="blue" style="font-size: 20px; letter-spacing: 5px; line-height: 0.5;">
