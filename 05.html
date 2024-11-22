@@ -21,7 +21,7 @@
         .result {
             background-color: #ffffcc;
             margin: 15px auto;
-            border-radius: 10px;
+            border-radius: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border: 2px solid green;
             padding: 15px;
@@ -151,17 +151,20 @@
             const threeDigits = num.slice(3); // Get last three digits (456)
             const twoDigits = num.slice(2, 4); // Get first two digits (34)
 
-            // Create HTML to display
-            const resultHtml = `
+ // Create HTML to display
+const resultHtml = `
     <div style="position: relative; text-align: center; font-size: 18px; line-height: 0.5;">
-                    <img src="logo.png" alt="Logo" style="display: block; margin: 0 auto; width: 70px;">
-        <h3 class="blue" style="font-size: 24px; display: inline-block; vertical-align: top; margin: 10px;">ผลลาวพัฒนา</h3>
-        <p class="blue" style="font-size: 18px; line-height: 0.5; margin-top: 10px;">${thaiDate}</p>
+        <h3 class="blue" style="font-size: 24px; display: inline-block; vertical-align: middle; margin: 0;">
+            <img src="logo.png" alt="Left Logo" style="width: 30px; vertical-align: middle; margin-right: 8px;">
+            ผลลาวพัฒนา
+            <img src="logo.png" alt="Right Logo" style="width: 30px; vertical-align: middle; margin-left: 8px;">
+        </h3>
+        <p class="blue" style="font-size: 18px; line-height: 0.5; margin-top: 20px;">${thaiDate}</p>
         <h2 class="blue" style="font-size: 18px; line-height: 0.5;">รางวัลเลข 6 ตัว</h2>
         <div style="text-align: center; margin-top: 10px;">
             ${sixDigitHtml}
         </div>
-        <p class="blue" style="font-size: 26px; letter-spacing: 5px; line-height: 0.5;">
+        <p class="blue" style="font-size: 24px; letter-spacing: 5px; line-height: 0.5;">
             บน <span style="color: green;" id="threeDigits">${threeDigits}</span> ล่าง <span style="color: blue;" id="twoDigits">${twoDigits}</span>
         </p>
     </div>
@@ -221,7 +224,7 @@
     </script>
 </head>
 <body>
-    <button class="back-button" onclick="window.location.href='https://udon-p.github.io/Don/01.html'">กลับสู่หน้าหลัก</button>
+    <button class="back-button" onclick="window.location.href='https://juckphai.github.io/juckim/01.html'">กลับสู่หน้าหลัก</button>
     <h1>ผลลาวพัฒนา</h1>
 
     <div style="text-align: center; margin-top: 20px;">
@@ -238,7 +241,7 @@
     </div>
 
     <footer>
-        &copy; 2024 Udon Don. All Rights Reserved.
+        &copy; 2024 Juckphai. All Rights Reserved.
     </footer>
 </body>
 </html>
