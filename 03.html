@@ -597,8 +597,9 @@ const additionalNumbersForThirdSetText = finalAdditionalNumbers.length > 0
 
 resultContainer.innerHTML = `
 <div id="resultContent" style="position: relative; text-align: center; font-size: 18px;">
- <img src="logo.png" alt="Logo" style="display: block; margin: 0 auto; width: 70px;">
-    <h2 class="blue" style="font-size: 15px;">${selectedTopic}</h2>
+    <img src="logo.png" alt="Logo Left" style="width: 40px; margin-right: 5px; vertical-align: middle;">
+    <h2 class="blue" style="font-size: 15px; display: inline; vertical-align: middle;">${selectedTopic}</h2>
+    <img src="logo.png" alt="Logo Right" style="width: 40px; margin-left: 5px; vertical-align: middle;">
     <p class="blue" style="font-size: 15px;">${dateInputValue ? getThaiDate(dateInput) : getThaiDate(new Date())}</p>
     <h2 class="blue" style="font-size: 15px;">
         ตัวเลข 3 ตัว  <span style="color: red;">${num}</span> By : ${selectedPerson}
@@ -661,15 +662,14 @@ resultContainer.style.display = 'block';
             </select>
             <!-- Person Selection on the Right -->
             <div style="display: inline-block;">
-                <label for="personSelect" style="font-size: 18px; margin-right: 5px;">เลือกผู้บอก:</label>
-                <select id="personSelect" style="font-size: 18px; padding: 5px;">
+                <select id="personSelect" style="font-size: 18px; padding: 15px;">
                     <option value="Udon Don">Udon Don</option>
                 </select>
             </div>
         </div>
         <!-- Convert Button -->
         <div style="text-align: center; margin-top: 10px;">
-            <button onclick="convertNumber()" style="font-size: 18px; padding: 12px;">แปลตัวเลข</button>
+            <button onclick="convertNumber()" style="font-size: 18px; padding: 10px;">แปลตัวเลข</button>
         </div>
 
         <!-- Note Input -->
@@ -679,7 +679,6 @@ resultContainer.style.display = 'block';
 
         <!-- Date Input -->
         <div style="text-align: center; margin-top: 10px;">
-            <label for="dateInput" style="font-size: 18px;">เลือกวันที่:</label>
             <input type="date" id="dateInput" style="font-size: 18px; padding: 5px;">
         </div>
 
