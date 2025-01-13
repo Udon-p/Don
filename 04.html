@@ -81,21 +81,24 @@
             width: fit-content;
             line-height: 1.4; /* ลดช่องว่างใน form */
         }
- #resultContainer {
-    display: none;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: #ffffcc;
-    border: 2px solid #4CAF50;
-    padding: 10px; /* ลด padding ให้กระชับ */
-    margin-left: auto; /* ตั้งค่า margin ด้านข้างให้เป็น auto */
-    margin-right: auto; /* เพื่อจัดให้อยู่ตรงกลาง */
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);
-    width: fit-content; /* กำหนดความกว้างให้พอดีกับเนื้อหา */
-    max-width: 100%; /* เพื่อป้องกันล้นหน้าจอ */
-    box-sizing: border-box; /* รวม padding และ border ในการคำนวณขนาด */
-}
+      #resultContainer {
+         display: none;
+         margin: 20px auto; /* กำหนดให้กึ่งกลางในแนวนอน */
+         max-width: 600px;
+         margin-top: 20px; /* ลดระยะขอบด้านบน */
+         margin-bottom: 20px; /* ลดระยะขอบด้านล่าง */
+         background-color: #ffffcc;
+         border: 2px solid #4CAF50;
+         padding: 10px;
+         border-radius: 10px;
+        width: fit-content; /* ปรับขนาดให้พอดีกับเนื้อหา */
+        text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+        box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);
+        }
+
+        #resultContainer p {
+            line-height: 0.5;
+        }
 
 #resultContainer h2.blue, 
 #resultContainer p.blue, 
