@@ -5,110 +5,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ฟอร์มแปลตัวเลข 2 ตัว</title>
     <style>
-font-family: Arial, sans-serif;
-        background-color: #fffde7;
-        margin: 0;
-        padding: 0;
-        line-height: 1.4; /* ลดค่า line-height */
-    }
-    h1 {
-        text-align: center;
-        font-size: 32px;
-        color: #2c3e50;
-        margin-top: 20px;
-        line-height: 1.2; /* ปรับให้กระชับขึ้น */
-    }
-    .container {
-        max-width: 600px;
-         margin-top: 20px;
-        margin-bottom: 20px;
-        background-color: #ffffcc;
-        border: 2px solid #4CAF50;
-        padding: 20px;
-        margin-left: 20px;
-        margin-right: 20px;
-        border-radius: 20px;
-        box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);   
-        line-height: 1; /* ลดช่องว่างใน container */
-    }
-
-    input, select, button {
-        font-size: 18px;
-        padding: 10px;
-        width: 90%;
-        margin: 10px 0; /* ลดช่องว่างระหว่าง input */
-        border-radius: 6px;
-        border: 1px solid #ddd;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        line-height: 1.2; /* ลดช่องว่างใน input */
-    }
-    button {
-        background-color: #4CAF50;
-        color: white;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        line-height: 1.2;
-    }
-    button:hover {
-        background-color: #45a049;
-    }
-    label {
-        font-size: 18px;
-        margin-left: 5%;
-        color: #2c3e50;
-        line-height: 1.2; /* ลดช่องว่างใน label */
-    }
-    footer {
-        text-align: center;
-        padding: 20px;
-        font-size: 14px;
-        color: #95a5a6;
-        line-height: 1.2; /* ลดช่องว่างใน footer */
-    }
-        .form-container {
-            border: 2px solid orange;
-            background-color: #ffffff;
-            margin: 10px auto; /* กำหนดให้กึ่งกลางในแนวนอน */
-            margin-top: 20px; /* ลดระยะขอบด้านบน */
-            margin-bottom: 20px; /* ลดระยะขอบด้านล่าง */
-            padding: 10px;
-            border-radius: 10px;
-            width: fit-content; /* ปรับขนาดให้พอดีกับเนื้อหา */
-            text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
-           box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fffde7;
+            margin: 0;
+            padding: 0;
+            line-height: 1.4;
+        }
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            color: #2c3e50;
+            margin-top: 20px;
+            line-height: 1.2;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: #ffffcc;
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);   
             line-height: 1;
         }
 
-      #resultContainer {
-         display: none;
-         margin: 10px auto; /* กำหนดให้กึ่งกลางในแนวนอน */
-         max-width: 600px;
-         margin-top: 20px; /* ลดระยะขอบด้านบน */
-         margin-bottom: 20px; /* ลดระยะขอบด้านล่าง */
-         background-color: #ffffcc;
-         border: 2px solid #4CAF50;
-         padding: 10px;
-         border-radius: 10px;
-        width: fit-content; /* ปรับขนาดให้พอดีกับเนื้อหา */
-        text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
-        box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);
+        input, select, button {
+            font-size: 18px;
+            padding: 10px;
+            width: 90%;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.2;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            line-height: 1.2;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        label {
+            font-size: 18px;
+            margin-left: 5%;
+            color: #2c3e50;
+            line-height: 1.2;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #95a5a6;
+            line-height: 1.2;
+        }
+        .form-container {
+            border: 2px solid orange;
+            background-color: #ffffff;
+            margin: 10px auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            width: fit-content;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);
+            line-height: 1;
+        }
+
+        #resultContainer {
+            display: none;
+            margin: 10px auto;
+            max-width: 600px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: #ffffcc;
+            border: 2px solid #4CAF50;
+            padding: 10px;
+            border-radius: 10px;
+            width: fit-content;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);
+            position: relative;
+            min-height: 300px;
+        }
+
+        #resultContainer::before {
+            content: "";
+            background-image: url('logo.png');
+            background-size: 90% auto;
+            background-repeat: no-repeat;
+            background-position: center top 5px; /* Adjusted to align with first line */
+            opacity: 0.4;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            margin: auto;
         }
 
         #resultContainer p {
             line-height: 0.5;
         }
 
-    #lineHeightSlider {
-        width: 100%;
-        margin: 10px 0; /* ลดช่องว่างระหว่าง slider */
-    }
-    #lineHeightValue {
-        font-size: 16px;
-        color: #2c3e50;
-        line-height: 1.2; /* ลดช่องว่างของข้อความใน slider */
-    }
+        #lineHeightSlider {
+            width: 100%;
+            margin: 10px 0;
+        }
+        #lineHeightValue {
+            font-size: 16px;
+            color: #2c3e50;
+            line-height: 1.2;
+        }
+
+        #resultContent {
+            position: relative;
+            z-index: 1;
+            padding-top: 10px; /* Added padding to prevent text overlap */
+        }
 
     </style>
     <script>
@@ -117,7 +142,7 @@ function getThaiDate(date = new Date()) {
     const day = String(date.getDate()).padStart(2, '0');
     const month = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"][date.getMonth()];
     const year = date.getFullYear() + 543;
-    const dayOfWeek = daysOfWeek[date.getDay()];  // หา วันในสัปดาห์
+    const dayOfWeek = daysOfWeek[date.getDay()];
     return `วัน${dayOfWeek}ที่ ${day} ${month} พ.ศ. ${year}`;
 }
 
@@ -182,30 +207,24 @@ function getThaiDate(date = new Date()) {
             const dateInput = document.getElementById("dateInput").value;
             const dateDisplay = dateInput ? getThaiDate(new Date(dateInput)) : getThaiDate();
 
- // Generate result HTML
-const resultHtml = `
-<div id="resultContent" style="position: relative; text-align: center; font-size: 16px; line-height: 1; margin-top: 10px;">
-    <!-- ใช้ flexbox เพื่อจัดโลโก้และข้อความให้อยู่ในแนวเดียวกัน -->
-    <h2 style="display: flex; align-items: center; justify-content: center; margin: 2px 0;">
-        <img src="logo.png" alt="Logo Left" style="width: 40px; margin-right: 2px;">
-        <span style="color: blue; font-size: 16px;">${selectedTopic}</span>
-        <img src="logo.png" alt="Logo Right" style="width: 10px; margin-left: 2px;">
+            const resultHtml = `
+<div id="resultContent" style="text-align: center; font-size: 16px; line-height: 1; margin-top: 10px;">
+    <h2 style="margin: 2px 0; color: blue; font-size: 16px;">${selectedTopic}</h2>
+    <h3 class="blue" style="font-size: 15px; display: inline; vertical-align: middle; color: blue; font-weight: normal;">
+        ${dateDisplay}
+    </h3>
+    <p style="font-size: 15px; color: blue;">
+    <h2 style="font-size: 16px; color: blue;">
+        ตัวเลข 2 ตัว <span style="color: red;">${num}</span> By : ${selectedPerson}
     </h2>
-        <h3 class="blue" style="font-size: 15px; display: inline; vertical-align: middle; color: blue; font-weight: normal;">
-            ${dateDisplay}
-        </h3>
-        <p style="font-size: 15px; color: blue;">
-<h2 style="font-size: 16px; color: blue;">
-            ตัวเลข 2 ตัว <span style="color: red;">${num}</span> By : ${selectedPerson}
-        </h2>
-        <h2 style="font-size: 16px; color: blue;">จัดชุด 2 ตัวดังนี้</h2>
-        <h2 style="font-size: 18px; color: blue; font-weight: normal;">${sortedPairs.join(' - ')}</h2>
-        <h2 style="font-size: 14px; color: red;">แนวทางเท่านั้น</h2>
-        <p style="font-size: 12px; color: blue;">
-            <strong>แปล:</strong> ${getThaiDate()} ${getThaiTime()}
-        </p>
-        <p style="font-size: 16px; color: blue;">หมายเหตุ : <span style="color: red;">${noteInput}</span></p>
-    </div>
+    <h2 style="font-size: 16px; color: blue;">จัดชุด 2 ตัวดังนี้</h2>
+    <h2 style="font-size: 18px; color: blue; font-weight: normal;">${sortedPairs.join(' - ')}</h2>
+    <h2 style="font-size: 14px; color: red;">แนวทางเท่านั้น</h2>
+    <p style="font-size: 12px; color: blue;">
+        <strong>แปล:</strong> ${getThaiDate()} ${getThaiTime()}
+    </p>
+    <p style="font-size: 16px; color: blue;">หมายเหตุ : <span style="color: red;">${noteInput}</span></p>
+</div>
 `;
 
             const resultContainer = document.getElementById("resultContainer");
@@ -213,7 +232,6 @@ const resultHtml = `
             resultContainer.style.display = "block";
         }
 
-        // Function to update line height based on slider value
         function updateLineHeight() {
             const lineHeight = document.getElementById("lineHeightSlider").value;
             const resultContent = document.getElementById("resultContent");
