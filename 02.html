@@ -208,19 +208,19 @@ function getThaiDate(date = new Date()) {
             const dateDisplay = dateInput ? getThaiDate(new Date(dateInput)) : getThaiDate();
 
             const resultHtml = `
-<div id="resultContent" style="text-align: center; font-size: 16px; line-height: 1; margin-top: 10px;">
-    <h2 style="margin: 2px 0; color: blue; font-size: 16px;">${selectedTopic}</h2>
-    <h3 class="blue" style="font-size: 15px; display: inline; vertical-align: middle; color: blue; font-weight: normal;">
+<div id="resultContent" style="text-align: center; font-size: 20px; line-height: 1; margin-top: 10px;">
+    <h2 style="margin: 2px 0; color: blue; font-size: 20px;">${selectedTopic}</h2>
+    <h3 class="blue" style="font-size: 20px; display: inline; vertical-align: middle; color: blue; font-weight: normal;">
         ${dateDisplay}
     </h3>
-    <p style="font-size: 15px; color: blue;">
-    <h2 style="font-size: 16px; color: blue;">
+    <p style="font-size: 20px; color: blue;">
+    <h2 style="font-size: 20px; color: blue;">
         ตัวเลข 2 ตัว <span style="color: red;">${num}</span> By : ${selectedPerson}
     </h2>
-    <h2 style="font-size: 16px; color: blue;">จัดชุด 2 ตัวดังนี้</h2>
-    <h2 style="font-size: 18px; color: blue; font-weight: normal;">${sortedPairs.join(' - ')}</h2>
-    <h2 style="font-size: 14px; color: red;">แนวทางเท่านั้น</h2>
-    <p style="font-size: 12px; color: blue;">
+    <h2 style="font-size: 20px; color: blue;">จัดชุด 2 ตัวดังนี้</h2>
+    <h2 style="font-size: 20px; color: blue; font-weight: normal;">${sortedPairs.join(' - ')}</h2>
+    <h2 style="font-size: 20px; color: red;">แนวทางเท่านั้น</h2>
+    <p style="font-size: 20px; color: blue;">
         <strong>แปล:</strong> ${getThaiDate()} ${getThaiTime()}
     </p>
     <p style="font-size: 16px; color: blue;">หมายเหตุ : <span style="color: red;">${noteInput}</span></p>
