@@ -19,6 +19,7 @@
             margin-top: 10px;
         }
         .result {
+            position: relative;
             background-color: #ffffcc;
             margin: 15px auto;
             border-radius: 20px;
@@ -28,48 +29,86 @@
             max-width: 500px;
             text-align: center;
         }
+        .result::before {
+            content: "";
+            background-image: url('logo.png');
+            background-size: 80% auto;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.4;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+        }
+        #resultContainer > div {
+            position: relative;
+            z-index: 1;
+        }
         .blue {
             color: blue;
-        }
-        .circle {
-            display: inline-block;
-            border: 3px solid orange;
-            border-radius: 50%;
             font-size: 20px;
-            width: 40px;
-            height: 40px;
-            text-align: center;
-            line-height: 42px;
-            margin: 0 5px;
-            position: relative;
-            z-index: 1;
         }
-        .square {
-            display: inline-block;
-            border: 3px solid red;
-            font-size: 20px;
-            width: 60px;
-            height: 40px;
-            text-align: center;
-            line-height: 42px;
-            margin: 0 5px;
-            box-sizing: border-box;
-            position: relative;
-            z-index: 1;
+        h3.blue {
+            font-size: 28px;
         }
+        h2.blue {
+            font-size: 28px;
+        }
+    .circle {
+        display: inline-block;
+        border: 3px solid red;
+        border-radius: 50%;
+        font-size: 32px; /* ปรับจาก 20px เป็น 32px */
+        width: 60px;    /* ปรับจาก 40px เป็น 60px */
+        height: 60px;   /* ปรับจาก 40px เป็น 60px */
+        text-align: center;
+        line-height: 60px; /* ปรับจาก 42px เป็น 60px */
+        margin: 0 5px;
+        position: relative;
+        z-index: 1;
+    }
+    .square {
+        display: inline-block;
+        border: 3px solid red;
+        font-size: 32px; /* ปรับจาก 20px เป็น 32px */
+        width: 90px;    /* ปรับจาก 60px เป็น 90px */
+        height: 60px;   /* ปรับจาก 40px เป็น 60px */
+        text-align: center;
+        line-height: 60px; /* ปรับจาก 42px เป็น 60px */
+        margin: 0 5px;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 1;
+    }
+    .square-two {
+        display: inline-block;
+        border: 3px solid red;
+        font-size: 32px;
+        width: 60px;    /* ความกว้างสำหรับสองตัว */
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        margin: 0 5px;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 1;
+    }
         .six-digit-frame {
             display: inline-block;
             background-color: white;
             color: red;
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
-            width: 25px;
-            height: 25px;
-            line-height: 27px;
+            width: 32px;
+            height: 32px;
+            line-height: 34px;
             text-align: center;
             border: 2px solid blue;
-            border-radius: 2px;
-            margin: 1px;
+            border-radius: 30px;
+            margin: 0.5px;
         }
         input[type="text"] {
             width: 100%;
@@ -124,68 +163,79 @@
             color: #666;
         }
     </style>
-    <script>
+<script>
     // Disable right-click
-    document.addEventListener('contextmenu', function(e) {
+    document.addEventListener('contextmenu', function (e) {
         e.preventDefault();
     });
 
+    // Set the default date in the date input field
+    function setDefaultDate() {
+        const dateInput = document.getElementById("dateInput");
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.value = today;
+        }
+    }
+
+    // Function to convert the entered number and display the result
     function convertNumber() {
         const num = document.getElementById("numberInput").value;
+        const dateInput = document.getElementById("dateInput").value;
 
-        // Ensure num has six digits
         if (num.length !== 6 || isNaN(num)) {
-            alert("กรุณากรอกตัวเลข 6 หลัก หรือปล่อยว่างเพื่อใช้วันที่ปัจจุบัน");
+            alert("กรุณากรอกตัวเลข 6 หลัก");
             return;
         }
 
-        // Format each digit in a rounded frame
+        const date = dateInput ? new Date(dateInput) : new Date();
+        const thaiDate = getThaiDate(date);
+
         let sixDigitHtml = '';
         for (let i = 0; i < num.length; i++) {
             sixDigitHtml += `<span class="six-digit-frame">${num[i]}</span>`;
         }
 
-        // กำหนดวันที่ (ใช้วันที่ที่ป้อน หรือวันที่ปัจจุบันถ้าไม่มีการป้อน)
-        const selectedDate = document.getElementById("dateInput").value ? new Date(document.getElementById("dateInput").value) : new Date();
-        const thaiDate = getThaiDate(selectedDate);
+        const threeDigits = num.slice(3);
+        const twoDigits = num.slice(2, 4);
 
-        // Prepare three and two digits
-        const threeDigits = num.slice(3); // Get last three digits (456)
-        const twoDigits = num.slice(2, 4); // Get first two digits (34)
-
-        // Create HTML to display
         const resultHtml = `
-            <div style="position: relative; text-align: center; font-size: 18px; line-height: 0.5;">
-                <h3 class="blue" style="font-size: 24px; display: inline-block; vertical-align: middle; margin: 0;">
-                    <img src="logo.png" alt="Left Logo" style="width: 60px; vertical-align: middle; margin-right: 8px;">
+            <div style="position: relative; text-align: center; line-height: 0.5;">
+                <h3 class="blue" style="display: inline-block; vertical-align: middle; margin: 0;">
                     ผลลาวพัฒนา
-                    <img src="logo.png" alt="Right Logo" style="width: 60px; vertical-align: middle; margin-left: 8px;">
                 </h3>
-                <p class="blue" style="font-size: 18px; line-height: 0.5; margin-top: 20px;">${thaiDate}</p>
-                <h2 class="blue" style="font-size: 18px; line-height: 0.5;">รางวัลเลข 6 ตัว</h2>
+                <p class="blue" style="margin-top: 20px;">${thaiDate}</p>
+                <h2 class="blue">รางวัลเลข 6 ตัว</h2>
                 <div style="text-align: center; margin-top: 10px;">
                     ${sixDigitHtml}
                 </div>
-                <p class="blue" style="font-size: 24px; letter-spacing: 5px; line-height: 0.5;">
-                    บน <span style="color: green;" id="threeDigits">${threeDigits}</span> ล่าง <span style="color: blue;" id="twoDigits">${twoDigits}</span>
+                <p class="blue" style="letter-spacing: 2px; font-size: 32px;"> <!-- เพิ่ม font-size: 32px; -->
+                    บน <span style="color: green;" id="threeDigits">${threeDigits}</span> 
+                    ล่าง <span style="color: blue;" id="twoDigits">${twoDigits}</span>
                 </p>
             </div>
         `;
 
-        document.getElementById("resultContainer").innerHTML = resultHtml;
-        document.getElementById("resultContainer").style.display = "block";
+        const resultContainer = document.getElementById("resultContainer");
+        resultContainer.innerHTML = resultHtml;
+        resultContainer.style.display = "block";
     }
 
+    // Convert a Date object to a formatted Thai date
     function getThaiDate(date = new Date()) {
         const daysOfWeek = ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์"];
+        const months = [
+            "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
+            "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
+        ];
         const day = String(date.getDate()).padStart(2, '0');
-        const month = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"][date.getMonth()];
+        const month = months[date.getMonth()];
         const year = date.getFullYear() + 543;
-        const dayOfWeek = daysOfWeek[date.getDay()];  // หา วันในสัปดาห์
+        const dayOfWeek = daysOfWeek[date.getDay()];
         return `วัน${dayOfWeek}ที่ ${day} ${month} พ.ศ. ${year}`;
     }
 
-    // Function for creating circles around two digits
+    // Function to create circles around two digits
     function createCircle() {
         const twoDigits = document.getElementById("resultContainer").querySelector("#twoDigits");
         if (twoDigits) {
@@ -195,40 +245,40 @@
         }
     }
 
-    // Function for creating circle around two top digits (last two digits of three digits)
-    function createCircleTop() {
+    function createSquareTop() {
         const threeDigits = document.getElementById("resultContainer").querySelector("#threeDigits");
         if (threeDigits) {
-            const digits = threeDigits.textContent.slice(-2); // Get last two digits only
-            const hundredsDigit = threeDigits.textContent.slice(0, 1); // Get the hundreds digit
-            threeDigits.innerHTML = `${hundredsDigit}<span class="circle">${digits}</span>`;
+            const digits = threeDigits.textContent.slice(-2); // เลขสองตัวหลัง
+            const hundredsDigit = threeDigits.textContent.slice(0, 1); // เลขตัวแรก
+            threeDigits.innerHTML = `${hundredsDigit}<span class="square-two">${digits}</span>`;
         } else {
             alert("กรุณากรอกตัวเลข 6 หลักก่อน");
         }
     }
 
-    // Function for creating squares around three digits
+    // Function to create squares around three digits
     function createSquare() {
         const threeDigits = document.getElementById("resultContainer").querySelector("#threeDigits");
         if (threeDigits) {
-            const digits = threeDigits.textContent; // Get all three digits
+            const digits = threeDigits.textContent;
             threeDigits.innerHTML = `<span class="square">${digits}</span>`;
         } else {
             alert("กรุณากรอกตัวเลข 6 หลักก่อน");
         }
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
+    // Initialize event listeners on page load
+    document.addEventListener("DOMContentLoaded", function () {
+        setDefaultDate();
         document.getElementById("convertButton").addEventListener("click", convertNumber);
         document.getElementById("circleButton").addEventListener("click", createCircle);
-        document.getElementById("circleTopButton").addEventListener("click", createCircleTop);
+        document.getElementById("circleTopButton").addEventListener("click", createSquareTop); // เปลี่ยนจาก createCircleTop
         document.getElementById("squareButton").addEventListener("click", createSquare);
     });
 </script>
-
 </head>
 <body>
-        <button class="back-button" onclick="window.location.href='https://udon-p.github.io/Don/01.html'">กลับสู่หน้าหลัก</button>
+   <button class="back-button" onclick="window.location.href='https://udon-p.github.io/Don/01.html'">กลับสู่หน้าหลัก</button>
     <h1>ผลลาวพัฒนา</h1>
 
     <div style="text-align: center; margin-top: 20px;">
@@ -245,7 +295,7 @@
     </div>
 
     <footer>
-        &copy; 2024 Udon Don. All Rights Reserved.
+         &copy; 2024 Udon Don. All Rights Reserved.
     </footer>
 </body>
 </html>
