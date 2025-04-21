@@ -3,107 +3,113 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ลิงก์หวยลาวแต่ละประเภท</title>
+  <title>รวมลิงก์ผลหวยลาว</title>
   <style>
     body {
-      font-family: 'Prompt', sans-serif;
-      background: #f2f2f2;
+      font-family: 'Arial', sans-serif;
       padding: 20px;
-      text-align: center;
+      background-color: #f5f5f5;
       margin: 0;
     }
-
     h1 {
-      color: #444;
-      margin-bottom: 30px;
-      font-size: 1.6em;
+      text-align: center;
+      color: #2e7d32;
     }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
+    .lottery-list {
+      max-width: 600px;
+      margin: auto;
     }
-
-    .button-link {
-      background-color: #4CAF50;
+    .lottery-item {
+      background: #2196f3; /* สีฟ้า */
+      margin-bottom: 10px;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
       color: white;
-      padding: 15px 20px;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .lottery-item a {
       text-decoration: none;
-      border-radius: 12px;
-      display: inline-block;
-      min-width: 260px;
-      max-width: 90vw;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: background-color 0.3s, transform 0.2s;
-      font-size: 1em;
-    }
-
-    .button-link:hover {
-      background-color: #45a049;
-      transform: scale(1.03);
-    }
-
-    .back-button {
-      background-color: #FF9800;
       color: white;
-      padding: 15px 30px;
+      display: block;
+      font-size: 18px;
+    }
+    .lottery-item span {
+      display: block;
+      color: white;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+    .back-button {
+      display: block;
+      margin: 30px auto 20px;
+      padding: 10px 20px;
+      background-color: orange;
+      color: white;
       border: none;
-      border-radius: 12px;
-      display: inline-block;
-      min-width: 320px;
-      max-width: 95vw;
+      border-radius: 5px;
       font-size: 16px;
-      margin-top: 30px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: background-color 0.3s, transform 0.2s;
       cursor: pointer;
     }
-
     .back-button:hover {
-      background-color: #fb8c00;
-      transform: scale(1.03);
+      background-color: darkorange;
     }
-
     footer {
-      margin-top: 60px;
-      font-size: 14px;
-      color: #777;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #888;
     }
   </style>
 </head>
 <body>
 
-  <h1>📌 ลิงก์ผลลาวตามเวลาต่างๆ</h1>
+<h1>ลิงก์ผลหวยลาวรายวัน</h1>
 
-  <div class="container">
-    <a class="button-link" href="https://laopatuxay.com/" target="_blank">ลาวประตูชัย - 05.45 น</a>
-    <a class="button-link" href="https://laosantipap.com/" target="_blank">ลาวสันติภาพ - 06.45 น</a>
-    <a class="button-link" href="https://laocitizen.com/" target="_blank">ประชาชนลาว - 07.45 น</a>
-    <a class="button-link" href="https://laoextra.com/" target="_blank">ลาว Extra - 08.30 น</a>
-    <a class="button-link" href="https://lao-tv.com/" target="_blank">ลาว TV - 10.30 น</a>
-    <a class="button-link" href="https://laoshd.com/" target="_blank">ลาว HD - 13.45 น</a>
-    <a class="button-link" href="https://laostars.com/" target="_blank">ลาวสตาร์ - 15.45 น</a>
-    <a class="button-link" href="https://laounion.com/" target="_blank">ลาวสามัคคี - 20.30 น</a>
-    <a class="button-link" href="https://lotterylaosasean.com/" target="_blank">ลาวอาเซียน - 21.00 น</a>
-    <a class="button-link" href="https://www.laosviplot.com/" target="_blank">ลาว VIP - 21.30 น</a>
-    <a class="button-link" href="https://laounionvip.com/" target="_blank">ลาวสามัคคี VIP - 21.30 น</a>
-    <a class="button-link" href="https://laostars-vip.com/" target="_blank">ลาวสตาร์ VIP - 22.00 น</a>
-    <a class="button-link" href="https://lao-redcross.com/" target="_blank">ลาวกาชาด - 23.30 น</a>
+<div class="lottery-list">
+  <div class="lottery-item"><a href="https://laopatuxay.com">ลาวประตูชัย</a><span>เวลา 05.45 น.</span></div>
+  <div class="lottery-item"><a href="https://laosantipap.com">ลาวสันติภาพ</a><span>เวลา 06.45 น.</span></div>
+  <div class="lottery-item"><a href="https://laocitizen.com">ประชาชนลาว</a><span>เวลา 07.45 น.</span></div>
+  <div class="lottery-item"><a href="https://laoextra.com">ลาว Extra</a><span>เวลา 08:30 น.</span></div>
+  <div class="lottery-item"><a href="https://www.laospattanamorning.com">ลาวตอนเช้า</a><span>เวลา 08:30 น.</span></div>
+  <div class="lottery-item"><a href="https://laochowlottery.com">ลาวเช้า</a><span>เวลา 08:30 น.</span></div>
+  <div class="lottery-item"><a href="https://www.laopattanamorning.com">ลาวพัฒนาเช้า</a><span>เวลา 09:00 น.</span></div>
+  <div class="lottery-item"><a href="https://www.laospattanamorningvip.com">ลาวพัฒนาเช้า VIP</a><span>เวลา 10:00 น.</span></div>
+  <div class="lottery-item"><a href="https://lao-tv.com">ลาวทีวี</a><span>เวลา 10:30 น.</span></div>
+  <div class="lottery-item"><a href="https://www.laomungkung.com">ลาวมั่งคั่ง</a><span>เวลา 11:30 น.</span></div>
+  <div class="lottery-item"><a href="https://laophised.com">ลาวพิเศษรอบเที่ยง</a><span>เวลา 12:00 น.</span></div>
+  <div class="lottery-item"><a href="https://laosspecial.com">ลาวพิเศษ</a><span>เวลา 12:00 น.</span></div>
+  <div class="lottery-item"><a href="https://laoplus.plus">ลาวพลัส</a><span>เวลา 12:05 น.</span></div>
+  <div class="lottery-item"><a href="https://www.laopattanamidday.com">ลาวพัฒนาเที่ยง</a><span>เวลา 12:30 น.</span></div>
+  <div class="lottery-item"><a href="https://www.laossabaidee.com">ลาวสบายดี</a><span>เวลา 12:30 น.</span></div>
+  <div class="lottery-item"><a href="https://www.laokaownah.com">ลาวก้าวหน้า</a><span>เวลา 13:30 น.</span></div>
+  <div class="lottery-item"><a href="https://laoshd.com">ลาว HD</a><span>เวลา 13:45 น.</span></div>
+  <div class="lottery-item"><a href="https://www.laojaroen.com">ลาวเจริญ</a><span>เวลา 14:30 น.</span></div>
+  <div class="lottery-item"><a href="https://www.loasnakonluuang.com">ลาวนครหลวง</a><span>เวลา 15:30 น.</span></div>
+  <div class="lottery-item"><a href="https://www.laomunkong.com">ลาวมั่นคง</a><span>เวลา 15:30 น.</span></div>
+  <div class="lottery-item"><a href="https://laostars.com">ลาวสตาร์</a><span>เวลา 15:45 น.</span></div>
+  <div class="lottery-item"><a href="https://www.laosniyom.com">ลาวนิยม</a><span>เวลา 16:30 น.</span></div>
+  <div class="lottery-item"><a href="https://www.laorumruay.com">ลาวร่ำรวย</a><span>เวลา 16:30 น.</span></div>
+  <div class="lottery-item"><a href="https://www.laomongkol.com">ลาวมงคล</a><span>เวลา 18:30 น.</span></div>
+  <div class="lottery-item"><a href="https://huaylaosuper.com">ลาวซูเปอร์</a><span>เวลา 19:00 น.</span></div>
+  <div class="lottery-item"><a href="https://laounion.com">ลาวสามัคคี</a><span>เวลา 20:30 น.</span></div>
+  <div class="lottery-item"><a href="https://lotterylaosasean.com">ลาวอาเซียน</a><span>เวลา 21:00 น.</span></div>
+  <div class="lottery-item"><a href="https://www.laohungheuong.com">ลาวรุ่งเรือง</a><span>เวลา 21:30 น.</span></div>
+  <div class="lottery-item"><a href="https://www.laosviplot.com">ลาว VIP</a><span>เวลา 21:30 น.</span></div>
+  <div class="lottery-item"><a href="https://laounionvip.com">ลาวสามัคคี VIP</a><span>เวลา 21:30 น.</span></div>
+  <div class="lottery-item"><a href="https://laostars-vip.com">ลาวสตาร์ VIP</a><span>เวลา 22:00 น.</span></div>
+  <div class="lottery-item"><a href="https://laopremium.net">ลาวพรีเมี่ยม</a><span>เวลา 23:00 น.</span></div>
+  <div class="lottery-item"><a href="https://laosiyara.com">ลาวไอยรา</a><span>เวลา 23:30 น.</span></div>
+  <div class="lottery-item"><a href="https://lao-redcross.com">ลาวกาชาด</a><span>เวลา 23:30 น.</span></div>
+</div>
+
+<button class="back-button" onclick="window.location.href='https://udon-p.github.io/Don/01.html'">กลับสู่หน้าหลัก</button>
+
+<footer> 
+  <div style="text-align: center; margin-bottom: 20px;">
+    &copy; 2024 Udon Don. All Rights Reserved.
   </div>
-
-  <button class="back-button" onclick="window.location.href='https://udon-p.github.io/Don/01.html'">กลับสู่หน้าหลัก</button>
-
-  <footer>
-     &copy; 2024 Udon Don. All Rights Reserved.
-  </footer>
-
-  <script>
-    document.addEventListener('contextmenu', function(e) {
-      e.preventDefault();
-    });
-  </script>
+</footer>
 
 </body>
 </html>
