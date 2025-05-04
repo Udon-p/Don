@@ -52,9 +52,9 @@
         .red { color: red; }
         .circle, .circle-green {
             display: inline-block;
-            border: 3px solid red;
+            border: 3px solid orange;
             border-radius: 50%;
-            font-size: 28px;
+            font-size: 36px;
             width: 50px;
             height: 50px;
             text-align: center;
@@ -64,8 +64,8 @@
         .square {
             display: inline-block;
             border: 3px solid red;
-            font-size: 28px;
-            width: 70px;
+            font-size: 36px;
+            width: 75px;
             height: 50px;
             text-align: center;
             line-height: 52px;
@@ -75,7 +75,7 @@
         .square-two {
             display: inline-block;
             border: 3px solid red;
-            font-size: 28px;
+            font-size: 36px;
             width: 60px;
             height: 50px;
             text-align: center;
@@ -84,36 +84,36 @@
             box-sizing: border-box;
         }
         .square-orange {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background-color: white;
             color: red;
-            font-size: 28px;
+            font-size: 40px;
             font-weight: bold;
-            width: 36px;
-            height: 36px;
-            line-height: 38px;
-            text-align: center;
+            width: 60px;
+            height: 60px;
             border: 2px solid blue;
-            border-radius: 50px;
-            margin: 0.5px;
+            border-radius: 50%;
+            margin: 1px;
+            box-sizing: border-box;
         }
-  .back-button {
-    display: block;
-    width: 90%;
-    max-width: 600px;
-    margin: 20px auto 10px;
-    padding: 10px 20px;
-    background-color: orange;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-
-  .back-button:hover {
-    background-color: darkorange;
-  }
+        .back-button {
+            display: block;
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto 10px;
+            padding: 10px 20px;
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: darkorange;
+        }
         .button-container {
             display: flex;
             justify-content: center;
@@ -158,8 +158,6 @@
             outline: none;
         }
         input[type="text"]::placeholder { text-align: center; }
-        
-        /* เพิ่มสไตล์สำหรับกรอบฟอร์ม */
         .form-container {
             background-color: #f9f9f9;
             border-radius: 15px;
@@ -283,9 +281,9 @@
                     <div style="margin: 12px 0;">
                         ${fiveDigits.split('').map(digit => `<span class="square-orange">${digit}</span>`).join('')}
                     </div>
-                    <p class="blue" style="font-size: 28px; letter-spacing: 2px; margin: 12px 0;">
-                        บน <span id="threeDigitsDisplay" style="color: blue;">${threeDigits}</span> 
-                        ล่าง <span id="twoDigitsDisplay" style="color: green;">${twoDigits}</span>
+                    <p class="blue" style="font-size: 32px; font-weight: bold; letter-spacing: 2px; margin: 12px 0;">
+                        บน <span id="threeDigitsDisplay" style="font-size: 36px; font-weight: bold; color: green;">${threeDigits}</span> 
+                        ล่าง <span id="twoDigitsDisplay" style="font-size: 36px; font-weight: bold; color: blue;">${twoDigits}</span>
                     </p>
                 </div>
             `;
@@ -295,14 +293,33 @@
                 resultContainer.innerHTML = resultHtml;
                 resultContainer.style.display = "block";
             }
+            
+            // Reset button states when new number is converted
+            circleButtonState = false;
+            squareButtonState = false;
+            circleTopButtonState = false;
         }
+
+        // Track button states
+        let circleButtonState = false;
+        let squareButtonState = false;
+        let circleTopButtonState = false;
 
         function createSquareTop() {
             const threeDigitsDisplay = document.getElementById("threeDigitsDisplay");
             if (threeDigitsDisplay) {
-                const digits = threeDigitsDisplay.textContent.slice(-2);
-                const hundredsDigit = threeDigitsDisplay.textContent.slice(0, 1);
-                threeDigitsDisplay.innerHTML = `${hundredsDigit}<span class="square-two">${digits}</span>`;
+                if (circleTopButtonState) {
+                    // Revert to original
+                    const digits = threeDigitsDisplay.textContent;
+                    threeDigitsDisplay.innerHTML = digits;
+                    circleTopButtonState = false;
+                } else {
+                    // Apply effect
+                    const digits = threeDigitsDisplay.textContent.slice(-2);
+                    const hundredsDigit = threeDigitsDisplay.textContent.slice(0, 1);
+                    threeDigitsDisplay.innerHTML = `${hundredsDigit}<span class="square-two">${digits}</span>`;
+                    circleTopButtonState = true;
+                }
             } else {
                 alert("กรุณากรอกตัวเลข 5 หลักก่อน");
             }
@@ -311,7 +328,16 @@
         function createCircle() {
             const twoDigitsDisplay = document.getElementById("twoDigitsDisplay");
             if (twoDigitsDisplay) {
-                twoDigitsDisplay.innerHTML = `<span class="circle">${twoDigitsDisplay.textContent}</span>`;
+                if (circleButtonState) {
+                    // Revert to original
+                    const digits = twoDigitsDisplay.textContent;
+                    twoDigitsDisplay.innerHTML = digits;
+                    circleButtonState = false;
+                } else {
+                    // Apply effect
+                    twoDigitsDisplay.innerHTML = `<span class="circle">${twoDigitsDisplay.textContent}</span>`;
+                    circleButtonState = true;
+                }
             } else {
                 alert("กรุณากรอกตัวเลข 5 หลักก่อน");
             }
@@ -320,8 +346,17 @@
         function createSquare() {
             const threeDigitsDisplay = document.getElementById("threeDigitsDisplay");
             if (threeDigitsDisplay) {
-                const digits = threeDigitsDisplay.textContent;
-                threeDigitsDisplay.innerHTML = `<span class="square">${digits}</span>`;
+                if (squareButtonState) {
+                    // Revert to original
+                    const digits = threeDigitsDisplay.textContent;
+                    threeDigitsDisplay.innerHTML = digits;
+                    squareButtonState = false;
+                } else {
+                    // Apply effect
+                    const digits = threeDigitsDisplay.textContent;
+                    threeDigitsDisplay.innerHTML = `<span class="square">${digits}</span>`;
+                    squareButtonState = true;
+                }
             } else {
                 alert("กรุณากรอกตัวเลข 5 หลักก่อน");
             }
