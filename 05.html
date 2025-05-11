@@ -231,7 +231,7 @@ input, select {
   background: radial-gradient(circle at 30% 30%, #ff9933, #cc6600);
 }
 
-/* ป้ายรางวัล */
+/* ป้ายรางวัลแบบนูน */
 .prize-label-red,
 .prize-label-blue,
 .prize-label-orange {
@@ -239,10 +239,11 @@ input, select {
   font-size: 22px;
   margin: 5px 0;
   text-shadow:
-    -1px -1px 0 #fff,
-     1px -1px 0 #fff,
-    -1px  1px 0 #fff,
-     1px  1px 0 #fff;
+    -2px -2px 1px #fff8dc,     /* แสงสีทองอ่อนจากบนซ้าย */
+    -1px -1px 1px #fff8dc,
+     1px 1px 0 #cc9900,        /* เงาทองจากล่างขวา */
+     2px 2px 2px #996600,      /* เงาทองเข้มลึก */
+     3px 3px 4px rgba(0,0,0,0.3); /* เงาดำลึกช่วยยกตัวอักษร */
 }
 
 .prize-label-red { color: #FF00FF; }
@@ -258,7 +259,7 @@ input, select {
   margin: 3px 0;
 }
 
-/* กรอบแสดงเลข */
+/* กรอบแสดงเลขแบบขอบฝัง */
 .circle-container,
 .square-container,
 .square-two-container {
@@ -268,19 +269,39 @@ input, select {
   height: 38px;
   margin: 0 0.5px;
   padding: 5px;
+  background: transparent;
 }
 
+/* กรอบแสดงเลขแบบขอบฝังลึก */
+.circle-container,
+.square-container,
+.square-two-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 38px;
+  margin: 0 0.5px;
+  padding: 5px;
+  background: transparent;
+  box-shadow:
+    inset 2px 2px 4px rgba(0, 0, 0, 0.3),       /* เงาด้านล่าง-ขวา */
+    inset -2px -2px 4px rgba(255, 255, 255, 0.4); /* ไฮไลต์ด้านบน-ซ้าย */
+}
+
+/* กรอบวงกลม */
 .circle-container {
   width: 82px;
-  border: 3px solid #FF00FF;
+  border: 3px solid #FF00FF; /* ชมพู */
   border-radius: 2%;
 }
 
+/* กรอบสี่เหลี่ยม */
 .square-container {
   width: 125px;
   border: 3px solid red;
 }
 
+/* กรอบสี่เหลี่ยมขนาดเล็ก */
 .square-two-container {
   width: 82px;
   border: 3px solid blue;
@@ -320,7 +341,6 @@ footer {
   padding: 10px 0;
 }
 </style>
-
 </head>
 <body>
     <button class="back-button" onclick="window.location.href='https://udon-p.github.io/Don/01.html'">กลับสู่หน้าหลัก</button>
@@ -349,18 +369,29 @@ footer {
   font-size: 36px;
   margin: 8px 0;
   font-weight: bold;
-  color: #FF00FF;
+  color: color: blue;
+  background: none;
   text-shadow:
-    -1px -1px 0 #fff,
-     1px -1px 0 #fff,
-    -1px  1px 0 #fff,
-     1px  1px 0 #fff,
-     0    0   4px rgba(204, 153, 0, 0.8),  /* เงาสีทองเข้ม */
-     2px  2px 6px rgba(153, 102, 0, 0.7);  /* เงาหนาและลึกขึ้น */
+    -2px -2px 2px #fff8dc,    /* แสงบนซ้ายสีทองอ่อน */
+    -1px -1px 1px #fff8dc,
+     1px 1px 0 #cc9900,       /* เงาทองด้านล่างขวา */
+     2px 2px 2px #996600,     /* เงาทองเข้มลึก */
+     3px 3px 3px rgba(0, 0, 0, 0.3); /* เงาดำโปร่งลึกยิ่งขึ้น */
 ">
 ผลลาวพัฒนา
 </h3>
-                    <p id="popupDateDisplay" class="blue" style="font-size: 18px; margin: 3px 0;"></p>
+                    <p id="popupDateDisplay" class="blue" style="
+  font-size: 18px;
+  margin: 3px 0;
+  text-shadow:
+    -2px -2px 1px #fff8dc,     /* แสงสีทองอ่อนจากบนซ้าย */
+    -1px -1px 1px #fff8dc,
+     1px 1px 0 #cc9900,        /* เงาทองจากล่างขวา */
+     2px 2px 2px #996600,      /* เงาทองเข้มลึก */
+     3px 3px 3px rgba(0, 0, 0, 0.25); /* เงาดำบางช่วยยกตัวอักษร */
+">
+</p>
+
                     <h2 class="prize-label-red">รางวัลเลข 6 ตัว</h2>
                     <div id="popupFiveDigitsDisplay" class="ball-group"></div> 
                     <!-- จัดกลุ่มเลข 3 ตัวบนและ 2 ตัวล่างให้อยู่แนวเดียวกัน -->
