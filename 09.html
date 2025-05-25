@@ -1,180 +1,169 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ลิงก์ผลหวยฮานอย</title>
-  <style>
-  * {
-    box-sizing: border-box;
-  }
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>เลือกเว็บไซต์ฮานอย/เวียดนาม</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap" rel="stylesheet" />
+<style>
   body {
-      font-family: Arial, sans-serif;
-      background-color: #fffde7;
-      margin: 0;
-      padding: 0;
-      line-height: 1;
-  }
-
-  h1 {
-    margin-bottom: 30px;
-    text-align: center;
-    font-size: 28px;
-    color: #b26a00;
-  }
-
-  .link-container {
+    margin: 0;
+    padding: 20px 0;
+    font-family: 'Sarabun', sans-serif;
+    background: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
   }
 
-  .link-card {
-    background-color: #4CAF50;
-    text-align: center;
-    border: 1px solid #90caf9;
-    border-radius: 12px;
-    padding: 10px 15px;
-    margin: 0 auto 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 600px;
-    transition: transform 0.2s ease;
-  }
-
-  .link-card:hover {
-    transform: scale(1.02);
-  }
-
-  .link-card a {
-    color: #ffffff;
-    text-decoration: none;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-  }
-
-  .time {
-    color: #bbdefb;
-    font-size: 14px;
-  }
-
-.back-button {
+.homeButton {
+  width: 100%;
+  max-width: 400px;
   display: block;
-  width: 90%;
-  max-width: 600px;
-  margin: 15px auto;
-  padding: 10px 20px;
-  background-color: orange;
+  padding: 12px 28px;
+  background-color: #ffa500;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 14px;
   font-size: 16px;
   cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255, 165, 0, 0.7);
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+  margin-bottom: 24px;
 }
 
-  .back-button:hover {
-    background-color: darkorange;
+  .homeButton:hover {
+    background-color: #cc8400;
+    box-shadow: 0 7px 22px rgba(204, 132, 0, 0.8);
+  }
+
+  .container {
+    background-color: #fff8dc; /* เหลืองทองจางๆ */
+    width: 100%;
+    max-width: 400px;
+    padding: 30px 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(255, 165, 0, 0.25);
+    box-sizing: border-box;
+    text-align: center;
+    max-height: 320px;
+    overflow-y: auto;
+  }
+
+  h2 {
+    font-weight: 600;
+    color: #a66300;
+    margin-bottom: 28px;
+    font-size: 22px;
+  }
+
+select {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ffa500;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  background-color: #fff8dc;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23a66300" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  box-shadow: inset 0 1px 3px rgba(255, 165, 0, 0.2);
+  cursor: pointer;
+  color: blue;
+}
+
+  .openButton {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    background-color: #ffa500;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 165, 0, 0.5);
+    transition: background-color 0.3s ease;
+  }
+
+  .openButton:hover {
+    background-color: #cc8400;
+    box-shadow: 0 6px 20px rgba(204, 132, 0, 0.6);
   }
 
   footer {
     text-align: center;
-    margin-bottom: 20px;
-    color: #888;
+    font-size: 16px;
+    color: #a66300;
+    background-color: transparent;
+    margin-top: 5px;
+    padding: 8px 0;
+    line-height: 1;
+  }
+
+  @media (max-width: 600px) {
+    body {
+      padding: 20px 12px;
+    }
+    .container {
+      max-height: none;
+      max-width: 100%;
+    }
   }
 </style>
 </head>
 <body>
-  <h1>📌 ลิงก์ผลฮานอย/เวียดนาม</h1>
-<button class="back-button" onclick="window.location.href='https://udon-p.github.io/Don/01.html'">กลับสู่หน้าหลัก</button>
-  <div class="link-container">
-    <div class="link-card">
-      <a href="https://xsktvn.com" target="_blank">ผลฮานอยเช้า</a>
-      <div class="time">เวลา 08:30 น.</div>
-    </div>
-    <div class="link-card">
-      <a href="https://hanoiasean.com" target="_blank">ผลฮานอยอาเซียน</a>
-      <div class="time">เวลา 09:30 น.</div>
-    </div>
-    <div class="link-card">
-      <a href="https://xosohd.com" target="_blank">ผลฮานอย HD</a>
-      <div class="time">เวลา 11:30 น.</div>
-    </div>
-    <div class="link-card">
-      <a href="https://minhngocstar.com" target="_blank">ผลฮานอยสตาร์</a>
-      <div class="time">เวลา 12:30 น.</div>
-    </div>
-    <div class="link-card">
-      <a href="https://minhngoctv.com" target="_blank">ผลฮานอยทีวี</a>
-      <div class="time">เวลา 14:30 น.</div>
-    </div>
-    <div class="link-card">
-      <a href="https://minhnqoc.net" target="_blank">ผลฮานอยดานัง</a>
-      <div class="time">เวลา 16:30 น.</div>
-    </div>
-    <div class="link-card">
-      <a href="https://xstachroi.com" target="_blank">ผลฮานอยเฉพาะกิจ</a>
-      <div class="time">เวลา 16:30 น.</div>
-    </div>
-    <div class="link-card">
-      <a href="https://xosoredcross.com" target="_blank">ผลฮานอยกาชาด</a>
-      <div class="time">เวลา 16:30 น.</div>
-    </div>
-    <div class="link-card">
-      <a href="https://www.xsthm.com" target="_blank">ผลฮานอยพิเศษ</a>
-      <div class="time">เวลา 17:30 น.</div>
-    </div>
-    <div class="link-card">
-      <a href="https://xosounion.com" target="_blank">ผลฮานอยสามัคคี</a>
-      <div class="time">เวลา 17:30 น.</div>
-    </div>
-    <div class="link-card">
-      <a href="https://www.minhngoc.net" target="_blank">ผลฮานอยปกติ</a>
-      <div class="time">เวลา 18:30 น.</div>
-    </div>
-    <div class="link-card">
-      <a href="https://xosokqx.com" target="_blank">ผลเวียดนามปกติ ออนไลน์</a>
-      <div class="time">เวลา 18:30 น.</div>
-    </div>
-    <div class="link-card">
-      <a href="https://www.mlnhngoc.net" target="_blank">ผลฮานอย VIP</a>
-      <div class="time">เวลา 19:30 น.</div>
-    </div>
-    <div class="link-card">
-      <a href="https://www.xosokqx.com" target="_blank">ผลเวียดนาม VIP ออนไลน์</a>
-      <div class="time">เวลา 19:30 น.</div>
-    </div>
-    <div class="link-card">
-      <a href="https://xosodevelop.com/" target="_blank">ผลฮานอยพัฒนา</a>
-      <div class="time">เวลา 19:30 น.</div>
-    </div>
-    <div class="link-card">
-      <a href="https://www.ketqua4d.org" target="_blank">ผลฮานอย 4D</a>
-      <div class="time">เวลา 21:00 น.</div>
-    </div>
-    <div class="link-card">
-      <a href="https://xsdky.net/" target="_blank">ผลฮานอยดึก</a>
-      <div class="time">เวลา 22:30 น.</div>
-    </div>
-    <div class="link-card">
-      <a href="https://xosoextra.com" target="_blank">ผลฮานอย Extra</a>
-      <div class="time">เวลา 22:30 น.</div>
-    </div>
+
+  <button class="back-button" onclick="window.location.href='https://udon-p.github.io/Don/01.html'">กลับสู่หน้าหลัก</button>
+    กลับสู่หน้าหลัก
+  </button>
+
+  <div class="container">
+    <h2>เลือกเว็บไซต์ฮานอยที่ต้องการเข้า</h2>
+<select id="siteSelector">
+  <option value="">-- กรุณาเลือกเว็บไซต์ --</option>
+<option value="https://xsktvn.com">ผลฮานอยเช้า - เวลา 08:30 น.</option>
+<option value="https://hanoiasean.com">ผลฮานอยอาเซียน - เวลา 09:30 น.</option>
+<option value="https://xosohd.com">ผลฮานอย HD - เวลา 11:30 น.</option>
+<option value="https://minhngocstar.com">ผลฮานอยสตาร์ - เวลา 12:30 น.</option>
+<option value="https://minhngoctv.com">ผลฮานอยทีวี - เวลา 14:30 น.</option>
+<option value="https://minhnqoc.net">ผลฮานอยดานัง - เวลา 16:30 น.</option>
+<option value="https://xstachroi.com">ผลฮานอยเฉพาะกิจ - เวลา 16:30 น.</option>
+<option value="https://xosoredcross.com">ผลฮานอยกาชาด - เวลา 16:30 น.</option>
+<option value="https://www.xsthm.com">ผลฮานอยพิเศษ - เวลา 17:30 น.</option>
+<option value="https://xosounion.com">ผลฮานอยสามัคคี - เวลา 17:30 น.</option>
+<option value="https://www.minhngoc.net">ผลฮานอยปกติ - เวลา 18:30 น.</option>
+<option value="https://xosokqx.com">ผลเวียดนามปกติ ออนไลน์ - เวลา 18:30 น.</option>
+<option value="https://www.mlnhngoc.net">ผลฮานอย VIP - เวลา 19:30 น.</option>
+<option value="https://www.xosokqx.com">ผลเวียดนาม VIP ออนไลน์ - เวลา 19:30 น.</option>
+<option value="https://xosodevelop.com/">ผลฮานอยพัฒนา - เวลา 19:30 น.</option>
+<option value="https://www.ketqua4d.org">ผลฮานอย 4D - เวลา 21:00 น.</option>
+<option value="https://xsdky.net/">ผลฮานอยดึก - เวลา 22:30 น.</option>
+<option value="https://xosoextra.com">ผลฮานอย Extra - เวลา 22:30 น.</option>
+</select>
+    <button class="openButton" onclick="openSelectedSite()">เปิดเว็บไซต์</button>
   </div>
 
-   <button class="back-button" onclick="window.location.href='https://udon-p.github.io/Don/01.html'">กลับสู่หน้าหลัก</button>
-
   <footer>
-    &copy; 2025 Udon Don. All Rights Reserved.
+    &copy; 2024-2025 Udon Don. All Rights Reserved.
   </footer>
 
   <script>
-    document.addEventListener('contextmenu', function(e) {
-      e.preventDefault();
-    });
+    function openSelectedSite() {
+      const url = document.getElementById("siteSelector").value;
+      if (url) {
+        window.open(url, "_blank");
+      } else {
+        alert("กรุณาเลือกเว็บไซต์ก่อน");
+      }
+    }
   </script>
+
 </body>
 </html>
