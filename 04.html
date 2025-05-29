@@ -17,19 +17,16 @@
         h1 {
             text-align: center;
             font-size: 22px;
-            color: blue;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            line-height: 1;
+        color: blue;
+            margin: 10px 0;
         }
         
         label {
             font-size: 18px;
-            margin-left: 5%;
-            color: blue;
-            line-height: 1;
+            color: #2c3e50;
             display: block;
             text-align: center;
+            margin-left: 5%;
         }
         
         footer {
@@ -37,10 +34,9 @@
             padding: 20px;
             font-size: 14px;
             color: #95a5a6;
-            line-height: 1;
         }
-        
-        /* Form Elements */
+
+        /* ===== Form Elements ===== */
         input, select, button {
             font-size: 18px;
             padding: 10px;
@@ -49,8 +45,19 @@
             border-radius: 6px;
             border: 1px solid #ddd;
             display: block;
-            line-height: 1;
             text-align: center;
+            box-sizing: border-box;
+        }
+
+        input[type="date"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        
+        input[type="date"]::-webkit-datetime-edit {
+            text-align: center;
+            width: 100%;
         }
         
         button {
@@ -59,13 +66,13 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-
+        
         button:hover {
             background-color: #45a049;
         }
 
-        /* ปุ่มกลับสู่หน้าหลักเฉพาะ */
-        #homeButton {
+        /* ปุ่มกลับหน้าหลักสีส้ม */
+        .homeButton {
       display: block;
       width: 90%;
       max-width: 600px;
@@ -79,110 +86,33 @@
       cursor: pointer;
     }
 
-        #homeButton:hover {
+        .homeButton:hover {
             background-color: darkorange;
         }
-        
-        #lineHeightSlider {
-            width: 80%;
-            margin: 10px auto;
-        }
-        
-        #lineHeightValue {
-            font-size: 16px;
-            color: blue;
-            line-height: 1;
-            text-align: center;
-            display: block;
-        }
 
-        /* Container Styles */
+        
+        /* ===== Container Styles ===== */
         .form-container {
             border: 2px solid orange;
             background-color: #FEFEF0;
-            margin: 20px auto;
+            margin: 30px auto;
             padding: 15px;
             border-radius: 10px;
             width: 90%;
             max-width: 600px;
-            text-align: center;
             box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);
-            position: relative;
             box-sizing: border-box;
         }
 
         #resultContainer {
             display: none;
-            border: 2px solid #4CAF50;
-            background-color: #FAFAD2;
-            margin: 20px auto;
-            padding: 15px;
-            border-radius: 10px;
-            width: fit-content;
-            max-width: 100%;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);
-            position: relative;
-            min-height: 300px;
-            box-sizing: border-box;
-        }
-        
-        #resultContainer::before {
-            content: "";
-            background-image: url('logo.png');
-            background-size: 90% auto;
-            background-repeat: no-repeat;
-            background-position: center top 15px;
-            opacity: 0.5;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 0;
-            margin: auto;
-        }
-        
-        /* Result Content Styles */
-        #resultContent {
-            position: relative;
-            z-index: 1;
-        }
-        
-        #resultContent h2 {
-            font-size: 22px;
-            margin: 6px 0;
-            line-height: 1;
-        }
-        
-        #resultContent h3 {
-            font-size: 20px;
-            margin: 6px 0;
-            line-height: 1;
-        }
-        
-        #resultContent .number-pairs {
-            font-size: 20px;
-            margin: 8px 0;
-            font-weight: bold;
-        }
-        
-        #resultContent .note {
-            font-size: 20px;
-            margin: 8px 0;
-        }
-        
-        #resultContent .translation {
-            font-size: 16px;
-            margin: 6px 0;
         }
 
-        /* Responsive Styles */
+        /* ===== Responsive Styles ===== */
         @media only screen and (max-width: 600px) {
-            .form-container, #resultContainer {
+            .form-container {
                 width: calc(100% - 20px);
-                margin-left: 10px;
-                margin-right: 10px;
+                margin: 10px;
             }
             
             input, select, button {
@@ -190,21 +120,19 @@
             }
         }
     </style>
+
+</style>
 </head>
 <body>
+    <h1>ฟอร์มแปลตัวเลข 4 ตัว</h1>
     <div class="form-container">
-        <h1>ฟอร์มแปลตัวเลข 4 ตัว</h1>
-        <div style="text-align: center; margin-top: 20px; width: 300px; margin-left: auto; margin-right: auto;">
-
-            <!-- Number Input -->
-            <div style="margin-top: 30px; width: 100%;">
-                <input type="text" id="numberInput" placeholder="กรุณากรอกตัวเลข 4 หลัก" 
-                       style="font-size: 20px; padding: 12px; width: 100%; box-sizing: border-box;">
+        <!-- แถวที่ 1: ช่องกรอกตัวเลขกับตัวเลือกชนิดของตัวเลข -->
+        <div class="form-row">
+            <div class="form-col" style="width: 100%;">
+                <input type="text" id="numberInput" placeholder="กรุณากรอกตัวเลข 4 หลัก" pattern="\d{4}" maxlength="4" inputmode="numeric" />
             </div>
-
-            <!-- Topic Selection Dropdown -->
-            <div style="margin-top: 10px; width: 100%;">
-                <select id="topicSelect" style="font-size: 18px; padding: 10px; width: 100%; box-sizing: border-box;">
+            <div class="form-col" style="width: 100%;">
+                <select id="topicSelect">
                     <option value="ลาวประตูชัย เวลา 05.45 น">ลาวประตูชัย เวลา 05.45 น</option>
                     <option value="ลาวสันติภาพ เวลา 06.45 น">ลาวสันติภาพ เวลา 06.45 น</option>
                     <option value="ประชาชนลาว เวลา 07.45 น">ประชาชนลาว เวลา 07.45 น</option>
@@ -227,41 +155,39 @@
                     <option value="All laos ไม่ระบุ">All laos ไม่ระบุ</option>
                 </select>
             </div>
+        </div>
 
-            <!-- Person Selection -->
-            <div style="margin-top: 10px; width: 100%;">
-                <select id="personSelect" style="font-size: 18px; padding: 10px; width: 100%; box-sizing: border-box;">
+        <!-- แถวที่ 2: ช่องเลือกผู้บอกกับวันเดือนปี -->
+        <div class="form-row">
+            <div class="form-col" style="width: 100%;">
+                <select id="personSelect">
                     <option value="Udon Don">Udon Don</option>
                 </select>
             </div>
-
-            <!-- Date Input -->
-            <div style="margin-top: 10px; width: 100%;">
-                <input type="date" id="dateInput" style="font-size: 18px; padding: 10px; width: 100%; box-sizing: border-box;">
-            </div>
-
-            <!-- Note Input -->
-            <div style="margin-top: 10px; width: 100%;">
-                <input type="text" id="noteInput" placeholder="กรุณาใส่ข้อความที่ต้องการ" 
-                       style="font-size: 18px; padding: 10px; width: 100%; box-sizing: border-box;">
-            </div>
-
-            <!-- Convert Button -->
-            <div style="margin-top: 10px; width: 100%;">
-                <button id="convertButton" style="font-size: 18px; padding: 10px; width: 100%;">แปลตัวเลข</button>
+            <div class="form-col" style="width: 100%;">
+                <input type="date" id="dateInput" />
             </div>
         </div>
+
+        <!-- แถวที่ 3: หมายเหตุ -->
+        <div class="form-row">
+            <div class="form-col" style="width: 100%;">
+                <input type="text" id="noteInput" placeholder="หมายเหตุ (ถ้ามี)" />
+            </div>
+        </div>
+
+        <!-- ปุ่มแปลตัวเลข -->
+        <button id="convertButton">แปลตัวเลข</button>
     </div>
-
-    <!-- Result Container -->
-    <div id="resultContainer" style="text-align: center; margin-top: 20px;"></div>
-
-    <!-- Back Button -->
+    
+    <!-- ปุ่มกลับสู่หน้าหลัก (แก้ไขแล้ว ใส่ class="homeButton") -->
     <button id="homeButton" class="homeButton" onclick="window.location.href='https://udon-p.github.io/Don/01.html'">กลับสู่หน้าหลัก</button>
 
     <footer>
-        &copy; 2025 Udon Don. All Rights Reserved.
-    </footer>
+        <div style="text-align: center; margin-bottom: 20px;">
+            &copy; 2025 Udon Don. All Rights Reserved.
+        </div>
+    </footer> 
 
     <script>
         // ปิดการคลิกขวา
@@ -341,8 +267,8 @@
             const fontSizeTopic = "22px";
             const fontSizeDate = "18px";
             const fontSizeNumber = "22px";
-            const fontSizeTwoDigit = "20px";
-            const fontSizeThreeDigit = "20px";
+            const fontSizeTwoDigit = "22px";
+            const fontSizeThreeDigit = "22px";
             const fontSizeGuide = "18px";
             const fontSizeTranslation = "13px";
             const fontSizeNote = "18px";
@@ -422,26 +348,27 @@ return `
                     <title>ผลลัพธ์การแปลตัวเลข</title>
                     <style>
                         body {
-                            font-family: Arial, sans-serif;
-                            background-color: #fffde7;
                             margin: 0;
-                            padding: 0;
-                            line-height: 1;
-                            color: blue;
+                            padding: 10px;
+                            background-color: #fffde7;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            min-height: 100vh;
+                            box-sizing: border-box;
                         }
 
                         .result-container {
                             border: 2px solid #4CAF50;
                             background-color: #FAFAD2;
-                            margin: 20px auto;
                             padding: 15px;
                             border-radius: 10px;
-                            width: fit-content;
-                            max-width: 100%;
-                            text-align: center;
+                            width: calc(100% - 10px);
+                            margin: 10px auto;
+                            max-width: 600px;
+                            min-height: 300px;
                             box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);
                             position: relative;
-                            min-height: 300px;
                             box-sizing: border-box;
                         }
 
@@ -451,7 +378,7 @@ return `
                             background-size: 90% auto;
                             background-repeat: no-repeat;
                             background-position: center top 15px;
-                            opacity: 0.3;
+                            opacity: 0.5;
                             position: absolute;
                             top: 0;
                             left: 0;
@@ -463,7 +390,9 @@ return `
                         #resultContent {
                             position: relative;
                             z-index: 1;
-                            color: blue;
+                            line-height: 2.0;
+                            text-align: center;
+                            width: 100%;
                         }
 
                         #resultContent h2 {
