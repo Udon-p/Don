@@ -14,12 +14,14 @@
             line-height: 1;
         }
         
-        h1 {
-            text-align: center;
-            font-size: 22px;
+    h1 {
+        text-align: center;
+        font-size: 22px;
         color: blue;
-            margin: 10px 0;
-        }
+        margin-top: 10px;
+        margin-bottom: 10px;
+        line-height: 1;
+    }
         
         label {
             font-size: 18px;
@@ -108,11 +110,78 @@
             display: none;
         }
 
-        /* ===== Responsive Styles ===== */
+        #resultContainer {
+            display: none;
+            border: 2px solid #4CAF50;
+            background-color: #FAFAD2;
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 10px;
+            width: fit-content;
+            max-width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);
+            position: relative;
+            min-height: 300px;
+            box-sizing: border-box;
+        }
+        
+        #resultContainer::before {
+            content: "";
+            background-image: url('logo.png');
+            background-size: 90% auto;
+            background-repeat: no-repeat;
+            background-position: center top 15px;
+            opacity: 0.4;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            margin: auto;
+        }
+        
+        /* Result Content Styles */
+        #resultContent {
+            position: relative;
+            z-index: 1;
+        }
+        
+        #resultContent h2 {
+            font-size: 22px;
+            margin: 6px 0;
+            line-height: 1;
+        }
+        
+        #resultContent h3 {
+            font-size: 20px;
+            margin: 6px 0;
+            line-height: 1;
+        }
+        
+        #resultContent .number-pairs {
+            font-size: 20px;
+            margin: 8px 0;
+            font-weight: bold;
+        }
+        
+        #resultContent .note {
+            font-size: 20px;
+            margin: 8px 0;
+        }
+        
+        #resultContent .translation {
+            font-size: 16px;
+            margin: 6px 0;
+        }
+
+        /* Responsive Styles */
         @media only screen and (max-width: 600px) {
-            .form-container {
+            .form-container, #resultContainer {
                 width: calc(100% - 20px);
-                margin: 10px;
+                margin-left: 10px;
+                margin-right: 10px;
             }
             
             input, select, button {
@@ -120,11 +189,9 @@
             }
         }
     </style>
-
-</style>
 </head>
 <body>
-    <h1>ฟอร์มแปลตัวเลข 4 ตัว</h1>
+      <h1>ฟอร์มแปลตัวเลข 4 ตัว</h1>
     <div class="form-container">
         <!-- แถวที่ 1: ช่องกรอกตัวเลขกับตัวเลือกชนิดของตัวเลข -->
         <div class="form-row">
@@ -266,22 +333,22 @@
             // กำหนดขนาดฟอนต์
             const fontSizeTopic = "22px";
             const fontSizeDate = "18px";
-            const fontSizeNumber = "20px";
-            const fontSizeTwoDigit = "22px";
-            const fontSizeThreeDigit = "22px";
+            const fontSizeNumber = "22px";
+            const fontSizeTwoDigit = "20px";
+            const fontSizeThreeDigit = "20px";
             const fontSizeGuide = "18px";
             const fontSizeTranslation = "13px";
             const fontSizeNote = "18px";
 
 return `
-    <div id="resultContent" style="position: relative; text-align: center; line-height: 1.5;">
-        <h2 style="font-size: ${fontSizeTopic}; margin: 5px 0; color: #0000FF; text-shadow: -2px -2px 1px #fff8dc;">
-            ${selectedTopic}
-        </h2>
+  <div id="resultContent" style="position: relative; text-align: center; line-height: 1.5;">
+    <h2 style="font-size: ${fontSizeTopic}; margin: 0 0 10px 0; color: #0000FF; text-shadow: -2px -2px 1px #fff8dc;">
+      ${selectedTopic}
+    </h2>
 
-        <p style="font-size: ${fontSizeDate}; margin: 5px 0; color: #0000FF; text-shadow: -1px -1px 1px #fff8dc;">
-            ${displayDate}
-        </p>
+    <p style="font-size: ${fontSizeDate}; margin: 0 0 10px 0; color: #0000FF; text-shadow: -1px -1px 1px #fff8dc;">
+      ${displayDate}
+    </p>
 
 <h2 style="font-size: ${fontSizeNumber}; margin: 0 0 10px 0; color: #0000FF; text-shadow: -2px -2px 1px #fff8dc;">
   ตัวเลข 4 ตัว 
@@ -294,36 +361,36 @@ return `
   </span>
 </h2>
 
-        <h3 style="font-size: ${fontSizeTwoDigit}; margin: 5px 0; color: #0000FF; text-shadow: -2px -2px 1px #fff8dc;">
-            จัดชุด 2 ตัว
-        </h3>
+    <h3 style="font-size: ${fontSizeTwoDigit}; margin: 0 0 10px 0; color: #0000FF; text-shadow: -2px -2px 1px #fff8dc;">
+      จัดชุด 2 ตัว
+    </h3>
 
-        <p style="font-size: ${fontSizeTwoDigit}; margin: 5px 0; color: #0000FF; text-shadow: -2px -2px 1px #fff8dc;">
-            ${twoDigitPairs.join(' - ')}
-        </p>
+    <p style="font-size: ${fontSizeTwoDigit}; margin: 0 0 10px 0; color: #0000FF; text-shadow: -2px -2px 1px #fff8dc;">
+      ${twoDigitPairs.join(' - ')}
+    </p>
 
-        <h3 style="font-size: ${fontSizeThreeDigit}; margin: 5px 0; color: #0000FF; text-shadow: -2px -2px 1px #fff8dc;">
-            จัดชุด 3 ตัว
-        </h3>
+    <h3 style="font-size: ${fontSizeThreeDigit}; margin: 0 0 10px 0; color: #0000FF; text-shadow: -2px -2px 1px #fff8dc;">
+      จัดชุด 3 ตัว
+    </h3>
 
-        <p style="font-size: ${fontSizeThreeDigit}; margin: 5px 0; color: #0000FF; text-shadow: -2px -2px 1px #fff8dc;">
-            ${threeDigitCombinations.join(' - ')}
-        </p>
+    <p style="font-size: ${fontSizeThreeDigit}; margin: 0 0 10px 0; color: #0000FF; text-shadow: -2px -2px 1px #fff8dc;">
+      ${threeDigitCombinations.join(' - ')}
+    </p>
 
-        <p style="font-size: ${fontSizeGuide}; margin: 5px 0; color: red; text-shadow: -2px -2px 1px #fff8dc;">
-            แนวทางเท่านั้น
-        </p>
+    <p style="font-size: ${fontSizeGuide}; margin: 0 0 10px 0; color: red; text-shadow: -2px -2px 1px #fff8dc;">
+      แนวทางเท่านั้น
+    </p>
 
-<p style="font-size: ${fontSizeTranslation}; margin: 5px 0; color: #0000FF;">
-    แปล:${getThaiDate()} ${getThaiTime()}
-</p>
+    <p style="font-size: ${fontSizeTranslation}; margin: 0 0 10px 0; color: #0000FF;">
+      <strong>แปล:</strong> ${getThaiDate()} ${getThaiTime()}
+    </p>
 
+    <p style="font-size: ${fontSizeNote}; margin: 0 0 10px 0; color: #0000FF;">
+      หมายเหตุ: ${noteInput}
+    </p>
+  </div>
+`;
 
-        <p style="font-size: ${fontSizeNote}; margin: 5px 0; color: #0000FF;">
-            หมายเหตุ: ${noteInput}
-        </p>
-                </div>
-            `;
         }
 
         function openResultInNewWindow() {
@@ -349,27 +416,26 @@ return `
                     <title>ผลลัพธ์การแปลตัวเลข</title>
                     <style>
                         body {
-                            margin: 0;
-                            padding: 10px;
+                            font-family: Arial, sans-serif;
                             background-color: #fffde7;
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            min-height: 100vh;
-                            box-sizing: border-box;
+                            margin: 0;
+                            padding: 0;
+                            line-height: 1;
+                            color: blue;
                         }
 
                         .result-container {
                             border: 2px solid #4CAF50;
                             background-color: #FAFAD2;
+                            margin: 20px auto;
                             padding: 15px;
                             border-radius: 10px;
-                            width: calc(100% - 10px);
-                            margin: 10px auto;
-                            max-width: 600px;
-                            min-height: 300px;
+                            width: fit-content;
+                            max-width: 100%;
+                            text-align: center;
                             box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);
                             position: relative;
+                            min-height: 300px;
                             box-sizing: border-box;
                         }
 
@@ -391,9 +457,7 @@ return `
                         #resultContent {
                             position: relative;
                             z-index: 1;
-                            line-height: 2.0;
-                            text-align: center;
-                            width: 100%;
+                            color: blue;
                         }
 
                         #resultContent h2 {
@@ -501,7 +565,7 @@ return `
                     <div class="controls">
                         <div class="line-height-control">
                             <label for="popupLineHeightSlider">ปรับขนาดของบรรทัด:</label>
-                            <input type="range" id="popupLineHeightSlider" min="0.5" max="3" step="0.1" value="1.5" />
+                            <input type="range" id="popupLineHeightSlider" min="0.5" max="2.5" step="0.1" value="1.5" />
                             <span id="popupLineHeightValue">ความสูงของบรรทัด: 1.5</span>
                         </div>
                         
