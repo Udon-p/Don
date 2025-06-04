@@ -480,18 +480,18 @@
     function generateResultHTML() {
         const num = document.getElementById("numberInput").value;
         
-        // Get topic value
-        let selectedTopic;
-        if (document.getElementById("topicSelect").value === "custom") {
-            const name = document.getElementById("topicNameInput").value.trim();
-            const time = document.getElementById("topicTimeInput").value.trim();
-            selectedTopic = name && time ? `${name} เวลา ${time} น.` : 
-                           name ? `${name} เวลา (ระบุเวลา)` : 
-                           time ? `(ระบุชื่อ) เวลา ${time}` : 
-                           "(ระบุชื่อและเวลา)";
-        } else {
-            selectedTopic = document.getElementById("topicSelect").value;
-        }
+// Get topic value
+let selectedTopic;
+if (document.getElementById("topicSelect").value === "custom") {
+    const name = document.getElementById("topicNameInput").value.trim();
+    const time = document.getElementById("topicTimeInput").value.trim();
+    selectedTopic = name && time ? `${name} เวลา ${time} น.` : 
+                   name ? `${name} เวลา (ระบุเวลา)` : 
+                   time ? `(ระบุชื่อ) เวลา ${time} น.` : 
+                   "(ระบุชื่อและเวลา)";
+} else {
+    selectedTopic = document.getElementById("topicSelect").value;
+}
         
         // Get person value
         let selectedPerson;
