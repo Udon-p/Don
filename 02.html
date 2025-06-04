@@ -358,11 +358,12 @@
         return `วัน${dayOfWeek}ที่ ${day} ${month} พ.ศ. ${year}`;
     }
 
-    function getThaiTime() {
-        const now = new Date();
-        const time = String(now.getHours()).padStart(2, '0') + '.' + String(now.getMinutes()).padStart(2, '0');
-        return `เวลา ${time} น.`;
-    }
+function getThaiTime() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    return `เวลา ${hours}.${minutes} น.`;
+}
 
     function convertNumber() {
         const num = document.getElementById("numberInput").value;
