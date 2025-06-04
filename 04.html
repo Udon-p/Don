@@ -358,14 +358,13 @@
         return `เวลา ${time} น.`;
     }
 
-    function generateResultHTML() {
-        let selectedTopic = document.getElementById("topicSelect").value;
-      if (selectedTopic === "custom") {
-    const customName = document.getElementById("customTopicName").value.trim();
-    const customTime = document.getElementById("customTopicTime").value.trim();
-    selectedTopic = customName + (customTime ? " เวลา " + customTime + " น." : "");
-}
-
+function generateResultHTML() {
+    let selectedTopic = document.getElementById("topicSelect").value;
+    if (selectedTopic === "custom") {
+        const customName = document.getElementById("customTopicName").value.trim();
+        const customTime = document.getElementById("customTopicTime").value.trim();
+        selectedTopic = customName + (customTime ? ` เวลา ${customTime} น.` : "");
+    }
 
         let selectedPerson = document.getElementById("personSelect").value;
         if (selectedPerson === "custom") {
