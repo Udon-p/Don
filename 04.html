@@ -690,19 +690,13 @@
         }
 
         document.addEventListener("DOMContentLoaded", function() {
-// ตั้งค่าวันที่เริ่มต้นเป็นวันปัจจุบันของประเทศไทย (UTC+7)
-const now = new Date();
-
-// คำนวณเวลาตาม UTC+7 (เวลาประเทศไทย)
-const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-const thaiTime = new Date(utc + 7 * 60 * 60000);
-
-const year = thaiTime.getFullYear();
-const month = String(thaiTime.getMonth() + 1).padStart(2, '0');
-const day = String(thaiTime.getDate()).padStart(2, '0');
-const dateStr = `${year}-${month}-${day}`;
-
-document.getElementById("dateInput").value = dateStr;
+            // ตั้งค่าวันที่เริ่มต้นเป็นวันปัจจุบัน
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            const dateStr = `${year}-${month}-${day}`;
+            document.getElementById("dateInput").value = dateStr;
 
 
             // จัดการการเปลี่ยนค่าใน dropdown topic
