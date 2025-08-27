@@ -95,7 +95,7 @@ box-sizing: border-box;
 
 /* Result Header & Logo */
 .result-header { display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
-.header-logo { width: 40px; height: auto; }
+.header-logo { width: 50px; height: auto; }
 .topic-box {
 display: inline-flex;
 align-items: center;
@@ -149,69 +149,72 @@ width: 90%;
 <body>
 <h1>ฟอร์มแปลตัวเลข 2, 3 และ 4 ตัว</h1>
 <div class="form-container">
-<!-- Unified Topic Section -->
-<div class="select-wrapper">
-<select id="topicSelect" onchange="checkCustomTopicOption(this)">
-<option value="ลาวประตูชัย เวลา 05.45 น." data-default="true">ลาวประตูชัย เวลา 05.45 น.</option>
-<option value="ลาวสันติภาพ เวลา 06.45 น." data-default="true">ลาวสันติภาพ เวลา 06.45 น.</option>
-<option value="ประชาชนลาว เวลา 07.45 น." data-default="true">ประชาชนลาว เวลา 07.45 น.</option>
-<option value="ลาว Extra เวลา 08.30 น." data-default="true">ลาว Extra เวลา 08.30 น.</option>
-<option value="ลาว TV เวลา 10.30 น." data-default="true">ลาว TV เวลา 10.30 น.</option>
-<option value="ลาว HD เวลา 13.45 น." data-default="true">ลาว HD เวลา 13.45 น.</option>
-<option value="ลาวสตาร์ เวลา 15.45 น." data-default="true">ลาวสตาร์ เวลา 15.45 น.</option>
-<option value="รัฐบาล เวลา 15.45 น." data-default="true">รัฐบาล เวลา 15.45 น.</option>
-<option value="ฮานอยกาชาด เวลา 16.30 น." data-default="true">ฮานอยกาชาด เวลา 16.30 น.</option>
-<option value="อานอยพิเศษ เวลา 17.30 น." data-default="true">อานอยพิเศษ เวลา 17.30 น.</option>
-<option value="ฮานอย เวลา 18.30 น." data-default="true">ฮานอย เวลา 18.30 น.</option>
-<option value="ฮานอย VIP เวลา 19.30 น." data-default="true">ฮานอย VIP เวลา 19.30 น.</option>
-<option value="ลาวสามัคคี เวลา 20.30 น." data-default="true">ลาวสามัคคี เวลา 20.30 น.</option>
-<option value="ลาวพัฒนา เวลา 20.30 น." data-default="true">ลาวพัฒนา เวลา 20.30 น.</option>
-<option value="ลาวอาเซียน เวลา 21.00 น." data-default="true">ลาวอาเซียน เวลา 21.00 น.</option>
-<option value="ลาว VIP เวลา 21.30 น." data-default="true">ลาว VIP เวลา 21.30 น.</option>
-<option value="ลาวสามัคคี VIP เวลา 21.30 น." data-default="true">ลาวสามัคคี VIP เวลา 21.30 น.</option>
-<option value="ลาวสตาร์ VIP เวลา 22.00 น." data-default="true">ลาวสตาร์ VIP เวลา 22.00 น.</option>
-<option value="ลาวกาชาด เวลา 23.30 น." data-default="true">ลาวกาชาด เวลา 23.30 น.</option>
-<option value="custom">อื่นๆ (พิมพ์เอง)</option>
-</select>
-<button class="manage-btn-inline" id="toggleTopicControls" title="จัดการหัวข้อ">⚙️</button>
-</div>
-<div class="management-actions" id="topicActions">
-<button id="addTopicBtn" class="add-btn">เพิ่ม</button>
-<button id="editTopicBtn" class="edit-btn">แก้ไข</button>
-<button id="deleteTopicBtn" class="delete-btn">ลบ</button>
-<button id="resetTopicBtn" class="reset-btn">คืนค่า</button>
-</div>
-<div id="customTopicInputs" style="display: none;">
-<div class="custom-topic-row" style="display: flex; justify-content: center; gap: 10px; width: 80%; margin: 0 auto;">
-<input type="text" id="customTopicName" placeholder="กรุณากรอกหัวข้อเอง" style="width: 60%; margin: 0;" />
-<input type="text" id="customTopicTime" placeholder="เวลา (เช่น 08.30)" style="width: 40%; margin: 0;" />
-</div>
-</div>
-<!-- Unified Person Section -->
-<div class="select-wrapper">
-    <select id="personSelect" onchange="checkCustomOption(this)">  
-        <option value="Udon Don" data-default="true">Udon Don</option>
-    </select>
-    <button class="manage-btn-inline" id="togglePersonControls" title="จัดการผู้บอก">⚙️</button>
-</div>
-<div class="management-actions" id="personActions">
-    <button id="addPersonBtn" class="add-btn">เพิ่ม</button>
-    <button id="editPersonBtn" class="edit-btn">แก้ไข</button>
-    <button id="deletePersonBtn" class="delete-btn">ลบ</button>
-    <button id="resetPersonBtn" class="reset-btn">คืนค่า</button>
-</div>
-<input type="text" id="customPersonInput" placeholder="กรุณากรอกชื่อผู้บอกเอง" style="display: none; width: 80%; margin: 10px auto;" />
+    <input type="text" id="numberInput" placeholder="กรอกตัวเลข 2, 3 หรือ 4 หลัก" pattern="\d*" maxlength="4" inputmode="numeric" />
 
-<div class="date-input-wrapper">
-    <input type="text" id="dateInput" placeholder="วว/ดด/ปปปป (พ.ศ.)" />
-    <button type="button" id="calendarButton">📅</button>
-</div>
-<input type="date" id="hiddenDateInput" style="display: none; visibility: hidden;">
+    <!-- Unified Topic Section -->
+    <div class="select-wrapper">
+        <select id="topicSelect" onchange="checkCustomTopicOption(this)">
+            <option value="ลาวประตูชัย เวลา 05.45 น." data-default="true">ลาวประตูชัย เวลา 05.45 น.</option>
+            <option value="ลาวสันติภาพ เวลา 06.45 น." data-default="true">ลาวสันติภาพ เวลา 06.45 น.</option>
+            <option value="ประชาชนลาว เวลา 07.45 น." data-default="true">ประชาชนลาว เวลา 07.45 น.</option>
+            <option value="ลาว Extra เวลา 08.30 น." data-default="true">ลาว Extra เวลา 08.30 น.</option>
+            <option value="ลาว TV เวลา 10.30 น." data-default="true">ลาว TV เวลา 10.30 น.</option>
+            <option value="ลาว HD เวลา 13.45 น." data-default="true">ลาว HD เวลา 13.45 น.</option>
+            <option value="ลาวสตาร์ เวลา 15.45 น." data-default="true">ลาวสตาร์ เวลา 15.45 น.</option>
+            <option value="รัฐบาล เวลา 15.45 น." data-default="true">รัฐบาล เวลา 15.45 น.</option>
+            <option value="ฮานอยกาชาด เวลา 16.30 น." data-default="true">ฮานอยกาชาด เวลา 16.30 น.</option>
+            <option value="อานอยพิเศษ เวลา 17.30 น." data-default="true">อานอยพิเศษ เวลา 17.30 น.</option>
+            <option value="ฮานอย เวลา 18.30 น." data-default="true">ฮานอย เวลา 18.30 น.</option>
+            <option value="ฮานอย VIP เวลา 19.30 น." data-default="true">ฮานอย VIP เวลา 19.30 น.</option>
+            <option value="ลาวสามัคคี เวลา 20.30 น." data-default="true">ลาวสามัคคี เวลา 20.30 น.</option>
+            <option value="ลาวพัฒนา เวลา 20.30 น." data-default="true">ลาวพัฒนา เวลา 20.30 น.</option>
+            <option value="ลาวอาเซียน เวลา 21.00 น." data-default="true">ลาวอาเซียน เวลา 21.00 น.</option>
+            <option value="ลาว VIP เวลา 21.30 น." data-default="true">ลาว VIP เวลา 21.30 น.</option>
+            <option value="ลาวสามัคคี VIP เวลา 21.30 น." data-default="true">ลาวสามัคคี VIP เวลา 21.30 น.</option>
+            <option value="ลาวสตาร์ VIP เวลา 22.00 น." data-default="true">ลาวสตาร์ VIP เวลา 22.00 น.</option>
+            <option value="ลาวกาชาด เวลา 23.30 น." data-default="true">ลาวกาชาด เวลา 23.30 น.</option>
+            <option value="custom">อื่นๆ (พิมพ์เอง)</option>
+        </select>
+        <button class="manage-btn-inline" id="toggleTopicControls" title="จัดการหัวข้อ">⚙️</button>
+    </div>
+    <div class="management-actions" id="topicActions">
+        <button id="addTopicBtn" class="add-btn">เพิ่ม</button>
+        <button id="editTopicBtn" class="edit-btn">แก้ไข</button>
+        <button id="deleteTopicBtn" class="delete-btn">ลบ</button>
+        <button id="resetTopicBtn" class="reset-btn">คืนค่า</button>
+    </div>
+    <div id="customTopicInputs" style="display: none;">
+         <div class="custom-topic-row" style="display: flex; justify-content: center; gap: 10px; width: 80%; margin: 0 auto;">
+            <input type="text" id="customTopicName" placeholder="กรุณากรอกหัวข้อเอง" style="width: 60%; margin: 0;" />
+            <input type="text" id="customTopicTime" placeholder="เวลา (เช่น 08.30)" style="width: 40%; margin: 0;" />
+        </div>
+    </div>
 
-<input type="text" id="noteInput" placeholder="หมายเหตุ (ถ้ามี)" />
-<input type="text" id="numberInput" placeholder="กรอกตัวเลข 2, 3 หรือ 4 หลัก" pattern="\d*" maxlength="4" inputmode="numeric" />
-<button id="convertButton">แปลตัวเลข</button>
+    <!-- Unified Person Section -->
+    <div class="select-wrapper">
+        <select id="personSelect" onchange="checkCustomOption(this)">
+            <option value="Udon Don" data-default="true">Udon Don</option>
+        </select>
+        <button class="manage-btn-inline" id="togglePersonControls" title="จัดการผู้บอก">⚙️</button>
+    </div>
+    <div class="management-actions" id="personActions">
+        <button id="addPersonBtn" class="add-btn">เพิ่ม</button>
+        <button id="editPersonBtn" class="edit-btn">แก้ไข</button>
+        <button id="deletePersonBtn" class="delete-btn">ลบ</button>
+        <button id="resetPersonBtn" class="reset-btn">คืนค่า</button>
+    </div>
+    <input type="text" id="customPersonInput" placeholder="กรุณากรอกชื่อผู้บอกเอง" style="display: none; width: 80%; margin: 10px auto;" />
+
+    <div class="date-input-wrapper">
+        <input type="text" id="dateInput" placeholder="วว/ดด/ปปปป (พ.ศ.)" />
+        <button type="button" id="calendarButton">📅</button>
+    </div>
+    <input type="date" id="hiddenDateInput" style="display: none; visibility: hidden;">
+
+    <input type="text" id="noteInput" placeholder="หมายเหตุ (ถ้ามี)" />
+    <button id="convertButton">แปลตัวเลข</button>
 </div>
+
 <button id="homeButton" class="homeButton" onclick="window.location.href='https://udon-p.github.io/Don/01.html'">กลับสู่หน้าหลัก</button>
 <!-- Result Popup -->
 <div id="resultPopupOverlay" class="popup-overlay">
